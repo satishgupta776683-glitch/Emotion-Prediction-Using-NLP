@@ -1,11 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emotion Lens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>App is working..</h1>
+<div class="glow" id="glow"></div>
+<main>
+  <header>
+    <h1>What does this sentence feel like?</h1>
+    <p>Write anything. The model reads it and tells you the emotion behind it.</p>
+  </header>
+
+  <section class="card">
+    <textarea id="input" maxlength="1000" rows="4" placeholder="I finally got the news I was waiting for..." aria-label="Your sentence"></textarea>
+    <div class="row">
+      <div class="chips" id="chips"></div>
+      <span id="count">0/1000</span>
+    </div>
+    <button id="go"><span class="label">Read the emotion</span><span class="spin"></span></button>
+    <p id="err" class="err" role="alert"></p>
+  </section>
+
+  <section class="card result" id="result" hidden>
+    <div class="top">
+      <div class="emoji" id="emoji"></div>
+      <div class="name"><span>The model hears</span><h2 id="emo"></h2><p id="quote"></p></div>
+      <div class="ring" aria-label="Confidence">
+        <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42"/><circle id="arc" cx="50" cy="50" r="42"/></svg>
+        <b id="pct">0%</b>
+      </div>
+    </div>
+    <div id="bars"></div>
+  </section>
+
+  <section class="hist" id="hist" hidden>
+    <h3>Recent</h3>
+    <div id="list"></div>
+  </section>
+</main>
+<script src="/static/script.js"></script>
 </body>
-</html>   
+</html>
