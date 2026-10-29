@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+pydantic
+numpy
+scikit-learn
+joblib
+pandas
+tensorflow==2.21.0
+keras==3.13.2uvicorn main:app --reload
